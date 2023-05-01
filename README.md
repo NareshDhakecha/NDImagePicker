@@ -42,12 +42,12 @@ Almost 90% of the app that I have developed has an Image upload feature. Along w
 
 
 
-2. The ImagePicker configuration is created using the builder pattern.
+2. The NDImagePicker configuration is created using the builder pattern.
 
 	**Kotlin**
 
 	```kotlin
-    ImagePicker.with(this)
+    NDImagePicker.with(this)
             .crop()	    			//Crop image(Optional), Check Customization for more option
             .compress(1024)			//Final image size will be less than 1 MB(Optional)
             .maxResultSize(1080, 1080)	//Final image resolution will be less than 1080 x 1080(Optional)
@@ -57,7 +57,7 @@ Almost 90% of the app that I have developed has an Image upload feature. Along w
     **Java**
 
     ```kotlin
-    ImagePicker.with(this)
+    NDImagePicker.with(this)
             .crop()	    			//Crop image(Optional), Check Customization for more option
             .compress(1024)			//Final image size will be less than 1 MB(Optional)
             .maxResultSize(1080, 1080)	//Final image resolution will be less than 1080 x 1080(Optional)
@@ -116,10 +116,10 @@ Almost 90% of the app that I have developed has an Image upload feature. Along w
         }
     ```
 
-    iii. Create ImagePicker instance and launch intent
+    iii. Create NDImagePicker instance and launch intent
 
     ```kotlin
-    ImagePicker.with(this)
+    NDImagePicker.with(this)
             .compress(1024)         //Final image size will be less than 1 MB(Optional)
             .maxResultSize(1080, 1080)  //Final image resolution will be less than 1080 x 1080(Optional)
             .createIntent { intent ->
@@ -133,7 +133,7 @@ Almost 90% of the app that I have developed has an Image upload feature. Along w
  *  Pick image using Gallery
 
 	```kotlin
-	ImagePicker.with(this)
+	NDImagePicker.with(this)
 		.galleryOnly()	//User can only select image from Gallery
 		.start()	//Default Request Code is ImagePicker.REQUEST_CODE
     ```
@@ -141,49 +141,49 @@ Almost 90% of the app that I have developed has an Image upload feature. Along w
  *  Capture image using Camera
 
 	```kotlin
-	ImagePicker.with(this)
+	NDImagePicker.with(this)
 		.cameraOnly()	//User can only capture image using Camera
 		.start()
     ```
  *  Crop image
 
     ```kotlin
-    ImagePicker.with(this)
+    NDImagePicker.with(this)
 		.crop()	    //Crop image and let user choose aspect ratio.
 		.start()
 	```
  *  Crop image with fixed Aspect Ratio
 
     ```kotlin
-    ImagePicker.with(this)
+    NDImagePicker.with(this)
 		.crop(16f, 9f)	//Crop image with 16:9 aspect ratio
 		.start()
     ```
  *  Crop square image(e.g for profile)
 
      ```kotlin
-     ImagePicker.with(this)
+     NDImagePicker.with(this)
          .cropSquare()	//Crop square image, its same as crop(1f, 1f)
          .start()
     ```
  *  Compress image size(e.g image should be maximum 1 MB)
 
 	```kotlin
-    ImagePicker.with(this)
+    NDImagePicker.with(this)
 		.compress(1024)	//Final image size will be less than 1 MB
 		.start()
     ```
  *  Set Resize image resolution
 
     ```kotlin
-    ImagePicker.with(this)
+    NDImagePicker.with(this)
 		.maxResultSize(620, 620)	//Final image resolution will be less than 620 x 620
 		.start()
     ```
  *  Intercept ImageProvider, Can be used for analytics
 
     ```kotlin
-    ImagePicker.with(this)
+    NDImagePicker.with(this)
         .setImageProviderInterceptor { imageProvider -> //Intercept ImageProvider
             Log.d("ImagePicker", "Selected ImageProvider: "+imageProvider.name)
         }
@@ -192,7 +192,7 @@ Almost 90% of the app that I have developed has an Image upload feature. Along w
  *  Intercept Dialog dismiss event
 
 	```kotlin
-    ImagePicker.with(this)
+    NDImagePicker.with(this)
     	.setDismissListener {
     		// Handle dismiss event
     		Log.d("ImagePicker", "onDismiss");
@@ -203,7 +203,7 @@ Almost 90% of the app that I have developed has an Image upload feature. Along w
  *  Specify Directory to store captured, cropped or compressed images. *Do not use external public storage directory (i.e. Environment.getExternalStorageDirectory())*
 
     ```kotlin
-    ImagePicker.with(this)
+    NDImagePicker.with(this)
        /// Provide directory path to save images, Added example saveDir method. You can choose directory as per your need.
 
        //  Path: /storage/sdcard0/Android/data/package/files
@@ -239,7 +239,7 @@ Almost 90% of the app that I have developed has an Image upload feature. Along w
  *  Limit MIME types while choosing a gallery image
 
     ```kotlin
-    ImagePicker.with(this)
+    NDImagePicker.with(this)
         .galleryMimeTypes(  //Exclude gif images
             mimeTypes = arrayOf(
               "image/png",
@@ -253,7 +253,7 @@ Almost 90% of the app that I have developed has an Image upload feature. Along w
  *  You can also specify the request code with ImagePicker
 
     ```kotlin
-    ImagePicker.with(this)
+    NDImagePicker.with(this)
 		.maxResultSize(620, 620)
 		.start(101)	//Here 101 is request code, you may use this in onActivityResult
     ```
